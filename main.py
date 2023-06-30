@@ -16,7 +16,7 @@ def main():
     model_builder = ModelBuilder()
 
     model = model_builder.build_model()
-    history = model_builder.train_model(model, X_train, y_train, X_val, y_val, epochs=3, batch_size=128)
+    history = model_builder.train_model(model, X_train, y_train, X_val, y_val, epochs=10, batch_size=128)
     evaluator = Evaluator()
     evaluator.plot_training_history(history)
     evaluator.evaluate_model(model, test_images, test_labels)
@@ -24,11 +24,11 @@ def main():
 
     pruned_model = model_builder.build_pruned_model()
     pruned_model.summary()
-    pruned_model.fit(X_train, y_train, batch_size=128, epochs=3, validation_data=(X_val, y_val),
+    pruned_model.fit(X_train, y_train, batch_size=128, epochs=10, validation_data=(X_val, y_val),
                      callbacks=[tfmot.sparsity.keras.UpdatePruningStep()])
     pruned_model.save('pruned_fashion_mnist_model.h5')
 
-    pruned_history = model_builder.train_model(pruned_model, X_train, y_train, X_val, y_val, epochs=3, batch_size=128)
+    pruned_history = model_builder.train_model(pruned_model, X_train, y_train, X_val, y_val, epochs=10, batch_size=128)
     evaluator = Evaluator()
     evaluator.plot_training_history(pruned_history)
     evaluator.evaluate_model(pruned_model, test_images, test_labels)

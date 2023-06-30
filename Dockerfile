@@ -21,8 +21,10 @@ RUN pip install -r requirements.txt
 RUN pip install tensorflow
 RUN pip install scikit-learn
 RUN pip install seaborn
-RUN apt-get install -y nodejs npm
+RUN pip install flask
+RUN pip install flask-uploads
+RUN pip install tensorflow-model-optimization
+RUN python3 main.py
 
-RUN npm install express
 EXPOSE 8000
-CMD [ "node", "server.js" ]
+CMD [ "python3", "app.py" ]
