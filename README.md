@@ -58,16 +58,18 @@ source env/bin/activate  # On Windows use `env\Scripts\activate`
 3. **Dependency Installation:** After activating the virtual environment, you can install the necessary libraries using pip. Here is the list of libraries we will be using:
 
     - numpy
-    - pandas
     - matplotlib
     - seaborn
     - scikit-learn
     - tensorflow
+    - flask
+    - flask-uploads
+    - tensorflow-model-optimization
 
 You can install these libraries using the following command:
 
 ```bash
-pip install numpy pandas matplotlib seaborn scikit-learn tensorflow
+pip install numpy matplotlib seaborn scikit-learn tensorflow flask flask-uploads tensorflow-model-optimization
 ```
 
 4. **Clone the Repository:** Now, clone the GitHub repository of this project using the following command:
